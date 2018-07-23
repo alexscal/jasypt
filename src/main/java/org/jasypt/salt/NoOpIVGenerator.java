@@ -1,10 +1,5 @@
 package org.jasypt.salt;
 
-import org.jasypt.commons.CommonUtils;
-import org.jasypt.exceptions.EncryptionInitializationException;
-
-import java.io.UnsupportedEncodingException;
-
 /**
  * <p>
  * SNoOp implementation of {@link IVGenerator}, when you don't want to use an IV
@@ -21,17 +16,6 @@ import java.io.UnsupportedEncodingException;
  *
  */
 public class NoOpIVGenerator implements IVGenerator {
-
-
-    /**
-     * Creates a new instance of <tt>NoOpIVGenerator</tt> using
-     * the default charset.
-     *
-     * @param iv the specified salt.
-     */
-    public NoOpIVGenerator() {
-        super();
-    }
 
     /**
      * Return IV with the specified byte length.
