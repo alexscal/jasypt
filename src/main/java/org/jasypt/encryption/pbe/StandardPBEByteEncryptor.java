@@ -789,7 +789,10 @@ public final class StandardPBEByteEncryptor implements PBEByteCleanablePasswordE
                  * means a better performance at the encrypt/decrypt methods. 
                  */
 
-                final IvParameterSpec ivParameterSpec = new IvParameterSpec(iv);
+                IvParameterSpec ivParameterSpec = null;
+                if (iv != null) {
+                    ivParameterSpec = new IvParameterSpec(iv);
+                }
 
                 final PBEParameterSpec parameterSpec = 
                     new PBEParameterSpec(this.fixedSaltInUse, this.keyObtentionIterations, ivParameterSpec);
@@ -950,7 +953,10 @@ public final class StandardPBEByteEncryptor implements PBEByteCleanablePasswordE
                 if (LOGGER.isDebugEnabled())
                     LOGGER.debug("IV Generated: {}", Arrays.toString(iv));
 
-                IvParameterSpec ivParameterSpec = new IvParameterSpec(iv);
+                IvParameterSpec ivParameterSpec = null;
+                if (iv != null) {
+                   ivParameterSpec = new IvParameterSpec(iv);
+                }
     
                 /*
                  * Perform encryption using the Cipher
@@ -1146,8 +1152,10 @@ public final class StandardPBEByteEncryptor implements PBEByteCleanablePasswordE
                 /*
                  * Perform decryption using the Cipher
                  */
-
-                final IvParameterSpec ivParameterSpec = new IvParameterSpec(iv);
+                IvParameterSpec ivParameterSpec  = null;
+                if (iv != null) {
+                   ivParameterSpec = new IvParameterSpec(iv);
+                }
 
                 final PBEParameterSpec parameterSpec = 
                     new PBEParameterSpec(salt, this.keyObtentionIterations, ivParameterSpec);
